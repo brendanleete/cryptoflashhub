@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Flash USDT Generator v3.1.4 (Prank Only) ⚡</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #22c55e;
+            --primary-dark: #16a34a;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: var(--light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 12px 12px 0 0;
+            padding: 1.5rem;
+            border-bottom: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            display: block;
+        }
+        
+        .badge {
+            background-color: var(--warning);
+            color: #000;
+            padding: 0.25rem 0.5rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 0 0 12px 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155;
+        }
+        
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            border-left: 4px solid var(--danger);
+            background-color: rgba(239, 68, 68, 0.1);
+        }
+        
+        .alert i {
+            font-size: 1.25rem;
+            color: var(--danger);
+        }
+        
+        .alert-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .alert-content p {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #e2e8f0;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            color: var(--light);
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .progress-container {
+            margin: 2rem 0;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #1e293b;
+            border-radius: 50px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+            border: 1px solid #334155;
+        }
+        
+        .progress {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary), #4ade80);
+            transition: width 0.3s ease;
+        }
+        
+        .progress-steps {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background-color: #1e293b;
+            border: 2px solid #334155;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            font-weight: 600;
+            color: #94a3b8;
+            transition: all 0.3s;
+        }
+        
+        .step.active .step-number {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .step.completed .step-number {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+        
+        .step-title {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        
+        .step.active .step-title {
+            color: var(--light);
+            font-weight: 500;
+        }
+        
+        .step.completed .step-title {
+            color: var(--primary);
+        }
+        
+        .result-container {
+            background-color: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .result-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        
+        .result-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .result-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        
+        .result-label {
+            color: #94a3b8;
+        }
+        
+        .result-value {
+            font-weight: 600;
+        }
+        
+        .copy-btn {
+            background-color: rgba(34, 197, 94, 0.2);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .copy-btn:hover {
+            background-color: rgba(34, 197, 94, 0.3);
+        }
+        
+        .loading {
+            display: inline-block;
+            animation: spin 1s linear infinite;
+        }
+        
+        .security-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding: 0.75rem;
+            background-color: rgba(34, 197, 94, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        
+        .security-badge i {
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+        
+        .security-badge-text {
+            font-size: 0.85rem;
+        }
+        
+        .disclaimer {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background-color: rgba(239, 68, 68, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid var(--danger);
+        }
+        
+        .disclaimer h3 {
+            color: var(--danger);
+            margin-bottom: 0.75rem;
+        }
+        
+        .disclaimer p {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            margin-bottom: 0.75rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 0.5rem;
+            }
+            
+            .progress-steps {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .step {
+                text-align: left;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+            
+            .step-number {
+                margin: 0;
+                flex-shrink: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Flash USDT Generator</h1>
+                    <span>v3.1.4 • Quantum Encryption Protocol</span>
+                </div>
+            </div>
+            <div class="badge">
+                ACTIVE MODE
+            </div>
+        </header>
+        
+        <div class="card">
+            <div class="alert">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div class="alert-content">
+                   
+                    
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="wallet">Your USDT Wallet Address (TRC20)</label>
+                <input type="text" id="wallet" class="form-control" placeholder="Txxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+            </div>
+            
+            <div class="form-group">
+                <label for="amount">Amount to Generate</label>
+                <input type="number" id="amount" class="form-control" placeholder="1000" min="1" value="1000">
+            </div>
+            
+            <div class="form-group">
+                <label for="speed">Processing Speed</label>
+                <select id="speed" class="form-control">
+                    <option value="slow">Standard (3-5 minutes)</option>
+                    <option value="medium">Fast (1-2 minutes)</option>
+                    <option value="fast">Flash (30 seconds)</option>
+                </select>
+            </div>
+            
+            <button id="generateBtn" class="btn btn-primary btn-block" onclick="startGeneration()">
+                <i class="fas fa-bolt"></i> Generate USDT
+            </button>
+            
+            <div class="security-badge">
+                <i class="fas fa-shield-alt"></i>
+                <div class="security-badge-text">
+                    <strong>Secure Connection:</strong> All transactions are encrypted with AES-256 and Quantum Resistance Protocol
+                </div>
+            </div>
+            
+            <div id="progressSection" class="hidden">
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <span>Processing Transaction</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    
+                    <div class="progress-steps">
+                        <div class="step active" id="step1">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Initializing</div>
+                        </div>
+                        <div class="step" id="step2">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Verification</div>
+                        </div>
+                        <div class="step" id="step3">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Quantum Encryption</div>
+                        </div>
+                        <div class="step" id="step4">
+                            <div class="step-number">4</div>
+                            <div class="step-title">Blockchain Sync</div>
+                        </div>
+                        <div class="step" id="step5">
+                            <div class="step-number">5</div>
+                            <div class="step-title">Finalizing</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="consoleLog" style="
+                    background-color: #1e293b;
+                    border: 1px solid #334155;
+                    border-radius: 8px;
+                    padding: 1rem;
+                    font-family: monospace;
+                    font-size: 0.85rem;
+                    color: #e2e8f0;
+                    height: 200px;
+                    overflow-y: auto;
+                    margin-top: 1rem;
+                ">
+                    <div>> System ready</div>
+                </div>
+            </div>
+            
+            <div id="resultContainer" class="result-container">
+                <div class="result-header">
+                    <div class="result-title">
+                        <i class="fas fa-check-circle"></i> Transaction Complete
+                    </div>
+                    <button class="copy-btn" onclick="copyResult()">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+                
+                <div class="result-content">
+                    <div class="result-row">
+                        <span class="result-label">Transaction ID:</span>
+                        <span class="result-value" id="txId">0x7d3f...2a4c</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Amount:</span>
+                        <span class="result-value" id="resultAmount">1000 USDT</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Network Fee:</span>
+                        <span class="result-value">0.00000000 USDT</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Status:</span>
+                        <span class="result-value" style="color: var(--primary);">Confirmed</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Timestamp:</span>
+                        <span class="result-value" id="timestamp">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="disclaimer">
+                <h3><i class="fas fa-exclamation-triangle"></i> IMPORTANT DISCLAIMER</h3>
+                
+                
+              
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Generate random transaction ID
+        function generateTxId() {
+            const chars = '0123456789abcdef';
+            let result = '0x';
+            for (let i = 0; i < 64; i++) {
+                result += chars[Math.floor(Math.random() * chars.length)];
+            }
+            return result;
+        }
+        
+        // Get current timestamp
+        function getCurrentTimestamp() {
+            const now = new Date();
+            return now.toLocaleString();
+        }
+        
+        // Add log entry
+        function addLog(message) {
+            const consoleLog = document.getElementById('consoleLog');
+            const logEntry = document.createElement('div');
+            logEntry.innerHTML = `> ${message}`;
+            consoleLog.appendChild(logEntry);
+            consoleLog.scrollTop = consoleLog.scrollHeight;
+        }
+        
+        // Update progress
+        function updateProgress(percent) {
+            const progress = document.getElementById('progress');
+            const progressPercent = document.getElementById('progressPercent');
+            
+            progress.style.width = `${percent}%`;
+            progressPercent.textContent = `${percent}%`;
+            
+            // Update active step
+            const steps = document.querySelectorAll('.step');
+            if (percent < 20) {
+                steps.forEach(step => step.classList.remove('active', 'completed'));
+                steps[0].classList.add('active');
+            } else if (percent < 40) {
+                steps[0].classList.remove('active');
+                steps[0].classList.add('completed');
+                steps[1].classList.add('active');
+            } else if (percent < 60) {
+                steps[1].classList.remove('active');
+                steps[1].classList.add('completed');
+                steps[2].classList.add('active');
+            } else if (percent < 80) {
+                steps[2].classList.remove('active');
+                steps[2].classList.add('completed');
+                steps[3].classList.add('active');
+            } else {
+                steps[3].classList.remove('active');
+                steps[3].classList.add('completed');
+                steps[4].classList.add('active');
+            }
+        }
+        
+        // Copy result
+        function copyResult() {
+            const resultText = `USDT Transaction Details:
+Amount: ${document.getElementById('resultAmount').textContent}
+Transaction ID: ${document.getElementById('txId').textContent}
+Status: Confirmed
+Timestamp: ${document.getElementById('timestamp').textContent}
+
+NOTE: This is a v01 software developed by tron company.`;
+            
+            navigator.clipboard.writeText(resultText).then(() => {
+                const copyBtn = document.querySelector('.copy-btn');
+                const originalHtml = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalHtml;
+                }, 2000);
+            });
+        }
+        
+        // Start generation process
+        function startGeneration() {
+            const wallet = document.getElementById('wallet').value;
+            const amount = document.getElementById('amount').value || '1000';
+            const speed = document.getElementById('speed').value;
+            
+            if (!wallet) {
+                alert('Please enter a wallet address');
+                return;
+            }
+            
+            // Disable generate button
+            const generateBtn = document.getElementById('generateBtn');
+            generateBtn.disabled = true;
+            generateBtn.innerHTML = '<i class="fas fa-cog fa-spin"></i> Processing...';
+            
+            // Show progress section
+            document.getElementById('progressSection').classList.remove('hidden');
+            
+            // Determine speed settings
+            let intervalTime, increment;
+            switch (speed) {
+                case 'slow':
+                    intervalTime = 300;
+                    increment = 1;
+                    break;
+                case 'medium':
+                    intervalTime = 150;
+                    increment = 2;
+                    break;
+                case 'fast':
+                    intervalTime = 75;
+                    increment = 4;
+                    break;
+                default:
+                    intervalTime = 200;
+                    increment = 1.5;
+            }
+            
+            // Start progress
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+                progress += Math.random() * increment;
+                progress = Math.min(progress, 100);
+                updateProgress(Math.floor(progress));
+                
+                // Add log messages at certain intervals
+                if (progress < 10 && !document.querySelector('#consoleLog div:last-child').textContent.includes('Connecting to Tether network')) {
+                    addLog('Connecting to Tether network...');
+                } else if (progress >= 10 && progress < 20 && !document.querySelector('#consoleLog div:last-child').textContent.includes('Verifying wallet address')) {
+                    addLog('Verifying wallet address...');
+                    addLog(`Wallet: ${wallet.substring(0, 6)}...${wallet.substring(wallet.length - 4)}`);
+                } else if (progress >= 20 && progress < 30 && !document.querySelector('#consoleLog div:last-child').textContent.includes('Initializing quantum encryption')) {
+                    addLog('Initializing quantum encryption protocol...');
+                } else if (progress >= 30 && progress < 40 && !document.querySelector('#consoleLog div:last-child').textContent.includes('Bypassing Tether security')) {
+                    addLog('Bypassing Tether security layer...');
+                } else if (progress >= 40 && progress < 50 && !document.querySelector('#consoleLog div:last-child').textContent.includes('Generating USDT tokens')) {
+                    addLog(`Generating ${amount} USDT tokens...`);
+                } else if (progress >= 50 && progress < 60 && !document.querySelector('#consoleLog div:last-child').textContent.includes('Syncing with blockchain')) {
+                    addLog('Syncing with TRON blockchain...');
+                } else if (progress >= 60 && progress < 70 && !document.querySelector('#consoleLog div:last-child').textContent.includes('Creating transaction')) {
+                    addLog('Creating transaction...');
+                } else if (progress >= 70 && progress < 80 && !document.querySelector('#consoleLog div:last-child').textContent.includes('Finalizing')) {
+                    addLog('Finalizing transaction...');
+                } else if (progress >= 80 && progress < 90 && !document.querySelector('#consoleLog div:last-child').textContent.includes('Almost done')) {
+                    addLog('Almost done...');
+                }
+                
+                // When complete
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    addLog('Transaction completed successfully!');
+                    addLog('DISCLAIMER: This was a simulation only. No real USDT was generated.');
+                    
+                    // Show result
+                    setTimeout(() => {
+                        document.getElementById('resultAmount').textContent = `${amount} USDT`;
+                        document.getElementById('txId').textContent = `${generateTxId().substring(0, 6)}...${generateTxId().substring(58)}`;
+                        document.getElementById('timestamp').textContent = getCurrentTimestamp();
+                        document.getElementById('resultContainer').style.display = 'block';
+                        
+                        // Reset button
+                        generateBtn.disabled = false;
+                        generateBtn.innerHTML = '<i class="fas fa-bolt"></i> Generate Again';
+                    }, 1000);
+                }
+            }, intervalTime);
+        }
+    </script>
+</body>
+</html>
